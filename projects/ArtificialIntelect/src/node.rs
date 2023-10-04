@@ -3,8 +3,8 @@ use rand::Rng;
 const RANDOM_MAX: i16 = 1000;
 
 pub struct Node{
-    number_of_inputs: u32,
     weights: Vec<f32>,
+    activation_function: fn(f32)->f32
 }
 
 impl Node{
@@ -13,14 +13,32 @@ impl Node{
             println!("{}", i);
         }
     }
+
+    pub fn calculate(&self,input: Vec<f32>)->f32{
+        let mut res: f32 = 0 as f32;
+        if input.len() == self.weights.len(){
+            for i in 0..self.weights.len(){
+                res += input[i]*self.weights[i];
+            }
+        }
+        res = (self.activation_function)(res);
+        res
+    }
 }
 
-pub fn create_node(number_of_inputs: u32) -> Node{
-    let weights = Vec::new();
-    let mut res = Node{number_of_inputs,weights};
-    for _i in 0..res.number_of_inputs{
+pub fn create_node(number_of_inputs: u32,activation_function: fn(f32)->f32) -> Node{
+    let mut weights = Vec::new();
+    for _i in 0..number_of_inputs{
         let rand_number = (rand::thread_rng().gen_range(-RANDOM_MAX..RANDOM_MAX) as f32)/(RANDOM_MAX as f32);
-        res.weights.push(rand_number);
+        weights.push(rand_number);
+    }
+    Node{weights,activation_function}
+}
+
+pub fn simple_activation_function(number:f32) -> f32{
+    let mut res:f32 = 0.0;
+    if number > 0.0 {
+        res = 1.0;
     }
     res
 }

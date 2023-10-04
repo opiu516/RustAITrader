@@ -1,1 +1,0 @@
-C:\Users\Martin\Desktop\projects\TradingAIRust\projects\ArtificialIntelect\target\debug\artificial_intelect.exe: C:\Users\Martin\Desktop\projects\TradingAIRust\projects\ArtificialIntelect\src\main.rs C:\Users\Martin\Desktop\projects\TradingAIRust\projects\ArtificialIntelect\src\node.rs
