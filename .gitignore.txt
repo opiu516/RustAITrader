@@ -1,1 +1,1 @@
-projects/ArtificialIntelect/target/
+/projects/ArtificialIntelect/target/
