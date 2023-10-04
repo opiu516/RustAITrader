@@ -21,8 +21,8 @@ impl Node{
                 res += input[i]*self.weights[i];
             }
         }
-        res = (self.activation_function)(res);
-        res
+        (self.activation_function)(res)
+        
     }
 }
 
