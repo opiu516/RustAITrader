@@ -1,3 +1,6 @@
+mod node;
+
 fn main() {
-    println!("Hello, world!");
+    let node = node::create_node(10);
+    node.display();
 }
