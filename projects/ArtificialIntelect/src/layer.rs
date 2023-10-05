@@ -16,16 +16,20 @@ impl Layer{
 
     pub fn display(&self){
         for i in 0..self.nodes.len(){
-            println!("  Node - {}",i);
+            println!("  Node - {}, inputs {}",i, self.number_of_inputs);
             self.nodes[i].display();
         }
     }
 
-    pub fn calculate(&self,input: Vec<f32>)->Vec<f32>{
+    pub fn calculate(&self,input: &Vec<f32>)->Vec<f32>{
         let mut res: Vec<f32> = Vec::new();
+        if input.len() as u32 != self.number_of_inputs{
+            println!("Layer Warning!, input = {:?}",input);
+        }
         for i in self.nodes.iter(){
             res.push(i.calculate(&input));
         }
+        println!("  res = {:?}",res);
         res 
     }
 }

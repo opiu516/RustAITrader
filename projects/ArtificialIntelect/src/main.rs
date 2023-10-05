@@ -11,7 +11,7 @@ fn simple_activation_function(number:f32) -> f32{
 }
 
 fn main() {
-    let network = neural_network::NeuralNetwork::new(10,vec![5,5,4,3],simple_activation_function,|vec: Vec<f32>| -> Vec<f32> { vec });
+    let network = neural_network::NeuralNetwork::new(7,vec![5,5,4,1],simple_activation_function,|vec: Vec<f32>| -> Vec<f32> { vec });
     network.display();
-    //println!("res = {:?}",layer.calculate(vec![2.0,1.0]));
+    println!("res = {:?}",network.calculate(vec![2.0,1.0,11.0,5.0,2.0,3.5,6.0]));
 }
