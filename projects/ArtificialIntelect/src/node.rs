@@ -18,12 +18,12 @@ impl Node{
     }
 
     pub fn display(&self){
-        for i in self.weights.iter(){
-            println!("{}", i);
+        for i in 0..self.weights.len(){
+            println!("      weight - {} = {}", i,self.weights[i]);
         }
     }
 
-    pub fn calculate(&self,input: Vec<f32>)->f32{
+    pub fn calculate(&self,input: &Vec<f32>)->f32{
         let mut res: f32 = 0 as f32;
         if input.len() == self.weights.len(){
             for i in 0..self.weights.len(){
